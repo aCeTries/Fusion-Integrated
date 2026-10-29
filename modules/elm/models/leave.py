@@ -38,4 +38,9 @@ class Leave(models.Model):
         verbose_name_plural = _('Leaves')
 
     def __str__(self):
-        return f'{self.employee.user.get_full_name()} - {self.get_category_display()} from {self.start_date} to {self.end_date}'
+        return (
+            f"{self.employee.display_name} - "
+            f"{self.get_category_display()} from "
+            f"{self.start_date} to {self.end_date}"
+        )
+    
